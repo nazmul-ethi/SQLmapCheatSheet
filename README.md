@@ -3,7 +3,7 @@
 
 
 ## Basic arguments for SQLmap
-Generic ->
+Generic 
 -   -u " < URL > " 
 -   -p "<PARAM TO TEST>" 
 -   --user-agent=SQLMAP 
