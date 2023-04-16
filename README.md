@@ -4,10 +4,10 @@
 
 ## Basic arguments for SQLmap
 Generic ->
--u "<URL>" 
--p "<PARAM TO TEST>" 
---user-agent=SQLMAP 
---random-agent 
+-  -u "<URL>" 
+-  -p "<PARAM TO TEST>" 
+-  --user-agent=SQLMAP 
+-  --random-agent 
 --threads=10 
 --risk=3 #MAX
 --level=5 #MAX
