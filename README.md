@@ -4,7 +4,7 @@
 
 ## Basic arguments for SQLmap
 Generic ->
--  -u "<URL>" 
+-  -u " < URL > " 
 -  -p "<PARAM TO TEST>" 
 -  --user-agent=SQLMAP 
 -  --random-agent 
