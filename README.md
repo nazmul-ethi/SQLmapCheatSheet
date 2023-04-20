@@ -53,13 +53,8 @@ Internal
 
 
 ## Injection place
-                            
-    $ sqlmap -u www.site.com/index.php?id=1 -- batch --dbs
-    
-    
-    
-   ##                 $ From BurpSuite/ZAP capture
-## Capture the request and create a req.txt file!
+    -   From BurpSuite/ZAP capture
+    -   Capture the request and create a req.txt file!
 ```[sqlmap -r req.txt --current-user]```
 
 ## GET Request Injection
