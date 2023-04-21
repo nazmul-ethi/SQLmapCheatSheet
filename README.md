@@ -16,7 +16,8 @@
     $ sqlmap -u www.site.com/ --crawl 2 --batch --output-dir="/home/nazmul/Desktop"
     $ sqlmap -u www.site.com/ --crawl 2 --batch --header="Referer:www.abc.com" -v 4
     
-    
+    ![image](https://user-images.githubusercontent.com/130249045/233613025-ddc044a8-a101-487c-9c92-63cbdb9b3a9f.png)
+
     
 
 
