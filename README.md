@@ -138,3 +138,14 @@ Sqlmap allows the use of -e or --eval to process each payload before sending it 
 # The --not-string "string" will help finding a string that does not appear in True responses (for finding boolean blind injection)
 -  sqlmap -r r.txt -p id --not-string ridiculous --batch
 
+
+# Output verbosity
+This option can be used to set the verbosity level of output messages. There exist seven levels of verbosity. The default level is 1 in which information, warning, error, critical messages and Python tracebacks (if any occur) are displayed.
+
+        0: Show only Python tracebacks, error and critical messages.
+        1: Show also information and warning messages.
+        2: Show also debug messages.
+        3: Show also payloads injected.
+        4: Show also HTTP requests.
+        5: Show also HTTP responses' headers.
+        6: Show also HTTP responses' page content.
