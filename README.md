@@ -149,3 +149,8 @@ This option can be used to set the verbosity level of output messages. There exi
         4: Show also HTTP requests.
         5: Show also HTTP responses' headers.
         6: Show also HTTP responses' page content.
+
+
+
+# WAF
+
