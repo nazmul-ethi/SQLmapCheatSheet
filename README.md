@@ -146,7 +146,7 @@ This option can be used to set the verbosity level of output messages. There exi
         1: Show also information and warning messages.
         2: Show also debug messages.
         3: Show also payloads injected.
-        4: Show also HTTP requests.
+        4: Show also HTTP requests. -payload
         5: Show also HTTP responses' headers.
         6: Show also HTTP responses' page content.
 
@@ -154,3 +154,5 @@ This option can be used to set the verbosity level of output messages. There exi
 
 # WAF
 
+        sqlmap --list -tempers
+        sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --level 2 --risk 2 --tamper='uppercase.py' -v 4 
